@@ -1,62 +1,52 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
-
 <p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+  <img src="/public/images/logoPurple2.svg" width="100" height="100" />
 </p>
 
-## About Laravel
+# art-certification-managment
+This application is made using Laravel 8.4 with jetstrem kit that come with livewire components and the laravel-admin package. the idea of this project is to manage the relation between the artist and the buyer, by managing their arts, demands, and verification of certifications, the application traits all the process from the demande until the generating of the certificate of the specific art.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+# Requirements
+- php >= 7.4
+- Laravel = 8.4
+ 
+# Instruction to install the application
+```
+git clone ...
+cd art-certification-managment
+composer install
+npm install
+php artisan migrate
+```
+> Don't forget to copy the env file and enter a valid database name before migration.
+> After creating .env file please run this command to generate an application key 
+```
+php artisan key:generate
+```
+> The last thing to do is to insert the smtp mail trap to catch emails, and you need also to use the braintree gateway for the payment.
+```
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.mailtrap.io
+MAIL_PORT=2525
+MAIL_USERNAME= your username
+MAIL_PASSWORD= your password
+MAIL_ENCRYPTION=tls
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+BRAINTREE_ENV=sandbox
+BRAINTREE_MERCHANT_ID=7cfb25xnqs9btwgj
+BRAINTREE_PUBLIC_KEY=tvn3yybkxs8j59b4
+BRAINTREE_PRIVATE_KEY=dca68f423543dc89040f1618bc07c6a0
+```
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+# usage
+```
+php artisan serve
+```
+> Register to the application.
 
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+# Functionalities
+- Create your profile.
+- The user add the demands by inserting all the informations about the art.
+- The user can verify the originality of its art by a generated code.
+- All the payment are done using paypal or masterCard (directly for the persons in the same city).
+- Generate the certificate after traiting the informations and the pictures of the art.
+- The admin approve the account creation of the users.
